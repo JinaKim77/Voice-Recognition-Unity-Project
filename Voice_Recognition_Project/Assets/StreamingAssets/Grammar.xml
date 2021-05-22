@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<grammar version="1.0" xml:lang="en-US" mode="voice"
+         root="toplevel" tag-format="semantics/1.0"
+         xmlns="http://www.w3.org/2001/06/grammar" >
+
+  <rule id="toplevel" scope="public">
+    <one-of>
+      <item>
+        <ruleref uri="#playstate" />
+      </item>
+      <item>
+        <ruleref uri="#movestate" />
+      </item>
+      <item>
+        <ruleref uri="#killEnemies" />
+      </item>
+      <item>
+        <ruleref uri="#changeWeapon" />
+      </item>
+      <item>
+        <ruleref uri="#makeRain" />
+      </item>
+      <item>
+        <ruleref uri="#gamePauseResume" />
+      </item>
+      <item>
+        <ruleref uri="#showGameStory" />
+      </item>
+    </one-of>
+  </rule>
+
+
+<!-- Start and Finish the game rules (Rule 1,2) --> 
+  <rule id="playstate">
+    <one-of>
+      <item>
+        <tag>out.action = "new";</tag> <!-- Start the game -->
+        <one-of>
+          <item> Start a new game </item>
+          <item> Begin a new game </item>
+          <item> New game </item>
+          <item> I want to play </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>out.action = "quit";</tag> <!-- Finish the game -->
+        <one-of>
+          <item> finish the game </item>
+          <item> exit game </item>
+          <item> I give up </item>
+        </one-of>
+      </item>
+    </one-of>
+  </rule>
+  
+
+  <!-- Controls the player movement rules (Rule 3) -->
+  <rule id="movestate">
+    <one-of>
+      <item> Go </item>
+      <item> Move </item>
+    </one-of>
+    <one-of>
+      <item>
+        <ruleref uri="#direction" />
+      </item>
+    </one-of>
+  </rule>
+
+
+  <!-- Player's direction rules (Up, Down, Left, Right)  (Rule 4) -->
+  <rule id="direction">
+    <one-of>
+      <item>
+        <tag>out.action = "up";</tag>
+        <one-of>
+          <item> up </item>
+          <item> top </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>out.action = "down";</tag>
+        <one-of>
+          <item> down </item>
+          <item> bottom </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>out.action = "right";</tag>
+        <one-of>
+          <item> right </item>
+          <item> right side </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>out.action = "left";</tag>
+        <one-of>
+          <item> left </item>
+          <item> left side </item>
+        </one-of>
+      </item>
+    </one-of>
+  </rule>
+
+
+  <!-- Attack ememy rule (Rule 5)-->
+  <rule id="killEnemies">
+    <one-of>
+      <item>
+        <tag>out.action = "shot";</tag>  <!-- Shot the bullet -->
+        <one-of>
+          <item> Fire the bullet </item>
+          <item> Shoot the enemy </item>
+          <item> Attack the enemy </item>
+        </one-of>
+      </item>
+    </one-of>
+  </rule>
+
+
+  <!-- Change weapon rule (Rule 6)-->
+  <rule id="changeWeapon">
+    <one-of>
+      <item>
+        <tag>out.action = "change";</tag>  <!-- Change player's weapon -->
+        <one-of>
+          <item> change weaspon </item>
+          <item> change bullet </item>
+        </one-of>
+      </item>
+    </one-of>
+  </rule>
+
+  <!-- Change weather rule (Rainy weather, Sunny weather) (Rule 7,8)-->
+  <rule id="makeRain">
+    <one-of>
+      <item>
+        <tag>out.action = "rain";</tag> <!-- Display rainy effect -->
+        <one-of>
+          <item> it is raining </item>
+          <item> raining </item>
+          <item> start raining </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>out.action = "norain";</tag>  <!-- Stop displaying rainy effect -->
+        <one-of>
+          <item> it is not raining </item>
+          <item> not raining </item>
+          <item> Stop raining </item>
+        </one-of>
+      </item>
+    </one-of>
+  </rule>
+
+
+  <!-- Game Pause and Resume rules (Rule 9,10)-->
+   <rule id="gamePauseResume">
+    <one-of>
+      <item>
+        <tag>out.action = "pause";</tag> <!-- Pause the game -->
+        <one-of>
+          <item> pause the game </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>out.action = "resume";</tag> <!-- Resume the game -->
+        <one-of>
+          <item> resume the game </item>
+        </one-of>
+      </item>
+    </one-of>
+  </rule>
+
+
+  <!-- Display Game Story rule (Rule 11,12)-->
+   <rule id="showGameStory">
+    <one-of>
+      <item>
+        <tag>out.action = "display";</tag>  <!-- Display the game story -->
+        <one-of>
+          <item> display game story </item>
+          <item> show game story </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>out.action = "donotDisplay";</tag>  <!-- Stop displaying the game story-->
+        <one-of>
+          <item> it is enough </item>
+          <item> I got it </item>
+          <item> don't display game story </item>
+        </one-of>
+      </item>
+    </one-of>
+  </rule>
+
+</grammar>
