@@ -1,7 +1,26 @@
-# Voice-Recognition-Unity-Project
-###### Developer : Jina Kim, G00353420  
+<h2 align="center">
+    Voice Recognition Unity Project
+</h3>
 <br>
 
+<p align="center">
+  <img src="./GMIT_Logo.PNG" width=700 height=250/>
+</p>
+
+## Project Details
+Heading     | Details
+------------|-------------------------------------
+Project     | [Spec](https://github.com/JinaKim77/Voice-Recognition-Unity-Project/blob/master/GUI%20Voice%20Project.pdf)
+Course      | BSc (Hons) in Software Development
+Module      | Gesture Based UI Development
+Authors     | Jina Kim 
+ID          | G00353420
+Lecturer    | Damien Costello
+
+## Game Play
+<p align="center">
+  <img src="./GamePlay.PNG" width=800 height=400/>
+</p>
 
 ## Overview
 
